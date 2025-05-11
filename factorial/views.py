@@ -14,7 +14,8 @@ def calc_factorial(request):
     if form.is_valid():
         number = form.cleaned_data['number']
         result = factorial_recursion(number)
-        result = f'{result:.4e}'
+        if result > 1000000000:
+            result = f'{result:.4e}'
         context = {'number': number, 'result': result}
         return render(request, 'partials/factorial_result.html', context)
     else:
