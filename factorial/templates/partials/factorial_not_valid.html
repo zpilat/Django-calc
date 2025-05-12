@@ -1,12 +1,14 @@
-<p>
-<h5>Errors:</h5>
+<div class="alert alert-danger mt-4">
 {% for field in form %}
   {% for error in field.errors %}
-    <div class="alert alert-success mt-4"><strong>{{ field.label }} field:</strong> {{ error }}</div>
+    <strong>{{ field.label }} field:</strong> {{ error }}
   {% endfor %}
 {% endfor %}
 
-{% for error in form.non_field_errors %}
-  <div class="alert alert-success mt-4">{{ error }}</div>
-{% endfor %}
-</p>
+{% if form.non_field_errors %}
+  <strong>Non-field errors:</strong>
+  {% for error in form.non_field_errors %}
+    <strong>{{ error }}</strong>
+  {% endfor %}
+{% endif %}
+</div>
