@@ -1,0 +1,18 @@
+<div class="card shadow-sm">
+  <div class="card-body">
+    <form
+      method="post"
+      hx-post="{% url 'factorial_result' %}"
+      hx-target="#result"
+      hx-swap="innerHTML"
+    >
+      {% csrf_token %}
+      {{ form }}
+      <div class="d-grid mt-3">
+        <button class="btn btn-primary" type="submit">Calculate</button>
+      </div>
+    </form>
+    <div id="result" class="mt-4"></div>
+  </div>
+</div>    
+

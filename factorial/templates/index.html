@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %} 
+<button 
+    class="btn btn-primary"
+    hx-get="{% url 'factorial_modal' %}"
+    hx-target="#modal-body"
+    hx-trigger="click"
+    data-bs-toggle="modal"
+    data-bs-target="#modal"
+>
+    Factorial calculation in modal
+</button>
+<a
+    class="btn btn-primary" 
+    href="{% url 'factorial2' %}"
+    role="button"
+>
+    Factorial calculation without htmx
+</a>
+
+<div class="modal fade" id="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content bg-light">
+        <div class="modal-header">
+          <h5 class="modal-title">Factorial calculation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <!-- HTMX content -->
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
